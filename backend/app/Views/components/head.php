@@ -21,6 +21,50 @@
         /*--secondary: ; */
     }
 
+
+    /* BODY ANIMATIONS */
+    @keyframes panDown {
+        from {
+            transform: translateY(-10px);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes panFade {
+        from {
+            transform: translateY(5px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes trigger {
+        to {
+            --animate: true;
+        }
+    }
+
+
+    @container style(--animate: true) {
+        .container-animate {
+            animation: panFade 600ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    section {
+        animation: trigger steps(1) both;
+        animation-timeline: view();
+        animation-range: entry 25% entry 80%;
+    }
+
     /* HEADER STYLES */
 
     /* width */
@@ -199,6 +243,7 @@
 
     button.disabled:hover {
         cursor: not-allowed;
+
         a {
             cursor: not-allowed
         }
@@ -212,7 +257,7 @@
         }
     }
 
-    section#hero > button {
+    section#hero>button {
 
 
         height: 4.5rem;
@@ -372,6 +417,7 @@
                 text-align: center;
                 flex-direction: column;
                 border: 5px solid #007EB0;
+                transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 
                 h2 {
                     margin-bottom: 1.3rem;
@@ -384,6 +430,12 @@
                     margin-bottom: 1.5rem;
                 }
             }
+
+
+            .news-card:hover {
+                transform: scale(1.15);
+            }
+
 
         }
 
@@ -702,16 +754,17 @@
         }
 
         section#signup {
-     
+
 
             .container {
                 padding-bottom: 3rem;
-                 h2 {
-                margin-bottom: -0.8rem;
-                 }
+
+                h2 {
+                    margin-bottom: -0.8rem;
+                }
             }
 
-            form > div:nth-of-type(4) {
+            form>div:nth-of-type(4) {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -737,7 +790,10 @@
             background-color: #EBF4F5;
             gap: 2rem;
             filter: drop-shadow(0px 6px 16.6px #B6B6B6);
+        }
 
+        .container-animate {
+            opacity: 0;
         }
 
         .card {
@@ -823,16 +879,7 @@
 
 
 
-        /* BODY ANIMATIONS */
-        @keyframes panDown {
-            from {
-                transform: translateY(-10px);
-            }
 
-            to {
-                transform: translateY(0);
-            }
-        }
 
         /* FOOTER STYLES */
         footer {

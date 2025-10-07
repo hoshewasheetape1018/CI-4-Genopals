@@ -25,8 +25,16 @@
                     <input type="password" name="Confirm password" placeholder="Password" required>
                 </div>
                 <div>
-                    <button class="primary"> <a href="/login"> BACK </a></button>
-                    <button class="secondary" type="submit"><a> SIGN UP </a></button>
+                    <?= view('components/buttons/primary', [
+                        'btnlink' => '/login',
+                        'btntitle' => 'BACK'
+                    ]) ?>
+
+                    <?= view('components/buttons/secondary', [
+                        'btntitle' => 'SIGN UP',
+                        'btntype' => 'submit'
+                    ]) ?>
+
                 </div>
             </form>
 
