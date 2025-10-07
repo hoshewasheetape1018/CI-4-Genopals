@@ -199,7 +199,9 @@
 
     button.disabled:hover {
         cursor: not-allowed;
-        background: linear-gradient(0deg, #D9D9D9 0.48%, #696969 83%);
+        a {
+            cursor: not-allowed
+        }
     }
 
     button.bordered:hover {
@@ -533,10 +535,8 @@
                     padding: 2rem;
 
                     img {
-                        width: 123px;
                         height: 118px;
-                        object-fit: none;
-                        object-position: 0px 0px;
+                        object-fit: cover;
                     }
 
                 }

@@ -111,9 +111,9 @@
 
                     <h4>LOGO STYLES</h4>
                     <div class="logo-row">
-                        <div><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png" alt="logo">
+                        <div><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/g-logo.png" alt="logo">
                         </div>
-                        <div class="rounded"><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png"
+                        <div class="rounded"><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/g-logo.png"
                                 alt="logo"></div>
 
                     </div>
