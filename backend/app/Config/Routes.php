@@ -7,8 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'Users::index');
-$routes->get('/signup', 'Registration::index');
-$routes->get('/login', 'Login::index');
+$routes->get('/signup', 'Authentication::sign_up');
+$routes->get('/login', 'Authentication::login');
 $routes->get('/news', 'Users::news');
 $routes->get('/news/moodboard', 'Users::moodboard');
 $routes->get('/news/roadmap', 'Users::roadmap');

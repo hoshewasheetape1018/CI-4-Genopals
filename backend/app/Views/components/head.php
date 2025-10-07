@@ -550,6 +550,11 @@
         section#roadmap {
             text-align: center;
 
+            .container {
+                padding-bottom: 3rem;
+
+            }
+
             /* Cards Row */
             .card-row {
                 display: flex;
@@ -623,9 +628,73 @@
         }
 
 
-        .container {
-            padding-bottom: 3rem;
+        section#login {
+            .login-container {
+                display: flex;
+                height: 100%;
+                width: 75vw;
+                gap: 1.5rem;
+            }
 
+            .login-item {
+                height: 80vh;
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1.3rem;
+                border-style: inset;
+                border: 5px solid white;
+                box-shadow: 0px 4px 4px #00000040;
+            }
+
+            .login-item:nth-of-type(2) {
+                background-color: #D0E2EE;
+                justify-content: flex-start;
+                padding-inline: 1.3rem;
+
+                input {
+                    margin-bottom: 1.5rem;
+                    width: 27.5rem;
+                    height: 2.5rem;
+                    font-size: 1.2rem;
+                }
+
+                h2 {
+                    text-align: left;
+                    margin-bottom: 0.7rem;
+                }
+            }
+
+            .login-img {
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%,
+                        rgba(255, 255, 255, 0.32) 40%,
+                        #ffffff 100%),
+                    url("https://file.garden/ZrIPgCGn9kADc89z/Genopals/better_hero_bg%20artge2.png");
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+
+                h2 {
+                    margin-bottom: 0.5rem;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin-bottom: 1.3rem;
+                }
+            }
+        }
+
+        .container {
             min-height: 80vh;
             width: 80vw;
             display: flex;
@@ -719,6 +788,7 @@
 
 
         }
+
 
 
         /* BODY ANIMATIONS */
