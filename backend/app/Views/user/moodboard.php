@@ -12,8 +12,8 @@
     <section id="moodboard">
         <div class="container">
             <div>
-            <h2> MOODBOARD </h2>
-                    <h4> Visual design guide for Genopals. </h4>
+                <h2> MOODBOARD </h2>
+                <h4> Visual design guide for Genopals. </h4>
             </div>
             <div class="moodboard-grid">
 
@@ -49,48 +49,72 @@
                     </div>
                 </div>
 
-                <div>
-                    <h4> BUTTON STYLES</h4>
+          <div>
+    <h4>BUTTON STYLES</h4>
+    <div class="button-row">
+        <?= view('components/buttons/primary', [
+            'btnlink' => '#',
+            'btntitle' => 'PRIMARY'
+        ]) ?>
 
-                    <div class="button-row">
-                        <button class="primary"><a href="">PRIMARY</a></button>
-                        <button class="secondary"><a href="">SECONDARY</a></button>
-                        <button class="action"><a href=""> CTA</a></button>
-                        <button class="disabled"><a href="">DISABLED</a></button>
-                        <button class="bordered"><a href="">BORDER</a></button>
-                    </div>
-                </div>
+        <?= view('components/buttons/secondary', [
+            'btnlink' => '#',
+            'btntitle' => 'SECONDARY'
+        ]) ?>
 
-                <div>
-                    <h4> CARD STYLES </h4>
-                    <div class="card-row">
-                        <div class="card">
-                            <h3>Card Title</h3>
-                            <p>This is a sample card description. It provides a brief overview of the card content.</p>
-                            <button class="primary"><a href="">Learn More</a></button>
-                        </div>
+        <?= view('components/buttons/action', [
+            'btnlink' => '#',
+            'btntitle' => 'CTA'
+        ]) ?>
 
-                        <div class="card">
-                            <h3> <img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/favicon.png" alt="pfp" height="25"> User</h3>
-                            <p>This is a sample card description. It provides a brief overview of the card content.</p>
-                            <button class="secondary"><a href="">Learn More</a></button>
-                        </div>
+        <?= view('components/buttons/disabled', [
+            'btnlink' => '#',
+            'btntitle' => 'DISABLED'
+        ]) ?>
 
-                        <div class="card">
-                            <h3>
-                                "This game cleansed my soul and redefined my purpose."
-                            </h3>
-                            <p> — Anonymous Player </p>
-                            <button class="action"><a href="">Learn More</a></button>
-                        </div>
-                    </div>
-                </div>
+        <?= view('components/buttons/bordered', [
+            'btnlink' => '#',
+            'btntitle' => 'BORDER'
+        ]) ?>
+    </div>
+</div>
 
-                <div>
+<div>
+    <h4>CARD STYLES</h4>
+    <div class="card-row">
+        <?= view('components/cards/card1', [
+            'title' => 'Card Title',
+            'description' => 'This is a sample card description. It provides a brief overview of the card content.',
+            'btntype' => 'primary',
+            'btnlink' => '#',
+            'btntitle' => 'Learn More'
+        ]) ?>
+
+        <?= view('components/cards/card2', [
+            'imgsrc' => 'https://file.garden/ZrIPgCGn9kADc89z/Genopals/favicon.png',
+            'title' => 'User',
+            'description' => 'This is a sample card description. It provides a brief overview of the card content.',
+            'btntype' => 'secondary',
+            'btnlink' => '#',
+            'btntitle' => 'Learn More'
+        ]) ?>
+
+        <?= view('components/cards/card3', [
+            'title' => '"This game cleansed my soul and redefined my purpose."',
+            'description' => '— Anonymous Player',
+            'btntype' => 'action',
+            'btnlink' => '#',
+            'btntitle' => 'Learn More'
+        ]) ?>
+    </div>
+</div>
+
                     <h4>LOGO STYLES</h4>
                     <div class="logo-row">
-                        <div><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png" alt="logo"></div>
-                        <div class="rounded"><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png" alt="logo"></div>
+                        <div><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png" alt="logo">
+                        </div>
+                        <div class="rounded"><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png"
+                                alt="logo"></div>
 
                     </div>
                 </div>

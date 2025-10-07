@@ -1,12 +1,30 @@
+<header>
+    <a href="/"><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png" alt="Genopals logo"
+            height="65"></a>
+    <nav>
+        <?= view('components/buttons/primary', [
+    'btnlink' => '/',
+    'btntitle' => 'CARE'
+]) ?>
 
-    <header>
-        <a href="/"><img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png" alt="Genopals logo"
-                height="65"></a>
-        <nav>
-            <button class="primary"> <a href="/">CARE </a></button>
-            <button class="primary"> <a href="/">INVENTORY </a></button>
-            <button class="primary"> <a href="/">SHOP </a></button>
-            <button class="primary"> <a href="/news">NEWS </a></button>
-            <button class="action"> <a href="/login">LOG IN </a></button>
-        </nav>
-    </header>
+        <?= view('components/buttons/primary', [
+    'btnlink' => '/',
+    'btntitle' => 'INVENTORY'
+]) ?>
+
+        <?= view('components/buttons/primary', [
+    'btnlink' => '/',
+    'btntitle' => 'SHOP'
+]) ?>
+
+        <?= view('components/buttons/primary', [
+    'btnlink' => '/news',
+    'btntitle' => 'NEWS'
+]) ?>
+
+        <?= view('components/buttons/action', [
+    'btnlink' => '/login',
+    'btntitle' => 'LOG IN'
+]) ?>
+    </nav>
+</header>
