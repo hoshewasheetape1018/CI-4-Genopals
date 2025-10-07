@@ -4,8 +4,8 @@ $roadmapItems = [
     ["title" => "Front end moodboard", "status" => "Completed"],
     ["title" => "Front end roadmap", "status" => "Completed"],
 
-    ["title" => "Front end Authorization (Login/registration)", "status" => "In Progress"],
-    ["title" => "Design / Layout of Care page, Authorization (Login/Sign up)", "status" => "In Progress"],
+    ["title" => "Front end Authorization (Login/registration)", "status" => "Completed"],
+    ["title" => "Design / Layout of Care page, Authorization (Login/Sign up)", "status" => "Completed"],
     ["title" => "Repurposing Shop page for simple CRUD demonstration for inventory system", "status" => "In Progress"],
 
     ["title" => "Backend CRUD functionality for Authorization", "status" => "Planned"],
