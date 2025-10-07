@@ -210,7 +210,7 @@
         }
     }
 
-    button.cta {
+    section#hero > button {
 
 
         height: 4.5rem;

@@ -13,7 +13,11 @@
         <h1>
             Create and take care of your own virtual angel pet!
         </h1>
-        <button class="secondary cta"><a href=""> SIGN UP</a></button>
+
+<?= view('components/buttons/secondary', [
+    'btnlink' => '/signup',
+    'btntitle' => 'SIGN UP'
+]) ?>
     </section>
 
 
@@ -138,13 +142,8 @@
 
     </section>
 
-    <section id="section4">
+    <?= view('components/cta') ?>
 
-        <h2>Join Us Now!</h2>
-        <p> Adopt a virtual pet and raise them with us at Genopals! </p>
-        <button class="primary cta"> <a href="/"> SIGN UP </a></button>
-
-    </section>
 
     </body>
 

@@ -17,23 +17,32 @@
 
                     <div class="login-img">
                         <div>
-                        <h2> No account yet? </h2>
-                        <button class="primary"> <a href="/signup"> SIGN UP </a></button>
+                            <h2> No account yet? </h2>
+
+                            <?= view('components/buttons/primary', [
+    'btnlink' => '/signup',
+    'btntitle' => 'SIGN UP'
+]) ?>
                         </div>
                     </div>
                 </div>
                 <div class="login-item">
                     <form action="" method="post">
                         <div>
-                        <h2> Username </h2>
-                        <input type="text" name="username" placeholder="Username" required>
+                            <h2> Username </h2>
+                            <input type="text" name="username" placeholder="Username" required>
                         </div>
                         <div>
-                        <h2> Password </h2>
-                        <input type="password" name="password" placeholder="Password" required>
+                            <h2> Password </h2>
+                            <input type="password" name="password" placeholder="Password" required>
                         </div>
                         <div>
-                        <button class="action" type="submit"><a> LOG IN </a></button>
+
+                            <?= view('components/buttons/action', [
+    'btnlink' => '#',
+    'btntitle' => 'LOG IN',
+    'btntype' => 'submit'
+]) ?>
                         </div>
                     </form>
                 </div>
