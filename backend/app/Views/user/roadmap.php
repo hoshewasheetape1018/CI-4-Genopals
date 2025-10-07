@@ -1,12 +1,11 @@
 <?php
-// Fragment: Flattened roadmap items (one card per task)
 $roadmapItems = [
     ["title" => "Front end landing page", "status" => "Completed"],
     ["title" => "Front end moodboard", "status" => "Completed"],
     ["title" => "Front end roadmap", "status" => "Completed"],
 
-    ["title" => "Front end Authorization (Login/registration)", "status" => "In Progress"],
-    ["title" => "Design / Layout of Care page, Authorization (Login/Sign up)", "status" => "In Progress"],
+    ["title" => "Front end Authorization (Login/registration)", "status" => "Completed"],
+    ["title" => "Design / Layout of Care page, Authorization (Login/Sign up)", "status" => "Completed"],
     ["title" => "Repurposing Shop page for simple CRUD demonstration for inventory system", "status" => "In Progress"],
 
     ["title" => "Backend CRUD functionality for Authorization", "status" => "Planned"],
@@ -36,41 +35,29 @@ $legend = [
 <?= view('components/head') ?>
 
 <body>
-    <!-- header -->
     <?= view('components/header') ?>
 
-    <!-- Roadmap Section -->
     <section id="roadmap">
         <div class="container">
             <div>
                 <h2>ROADMAP</h2>
                 <h4>
                     Current development roadmap for Genopals! <br>
-                    Progress and features are displayed below and are subject to change
+                    Progress and features are displayed below and are subject to change.
                 </h4>
             </div>
 
-         
-
-<!-- Cards Row -->
-<div class="card-row">
-    <?php foreach ($roadmapItems as $item): 
-        $statusClass = strtolower(str_replace(' ', '', $item['status'])); ?>
-        <div class="card">
-            <h3>
-                <?= $item['title'] ?>
-                <span class="badge <?= $statusClass ?>"><?= $item['status'] ?></span>
-            </h3>
-        </div>
-    <?php endforeach; ?>
-</div>
-
+            <div class="card-row">
+                <?php foreach ($roadmapItems as $item): ?>
+                    <?= view('components/cards/card4', [
+                        'title' => $item['title'],
+                        'status' => $item['status'],
+                    ]) ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </section>
 
+    <?= view('components/footer') ?>
 </body>
-
-<!-- footer -->
-<?= view('components/footer') ?>
-
 </html>

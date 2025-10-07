@@ -56,22 +56,26 @@ It helps teams quickly bootstrap backend + frontend projects, with simple sample
 
 ## Overview
 
-This template provides a **minimal CodeIgniter 4 project layout** with conventions for file organization, commit practices, and simple modules.
+This template provides the base layout for Genopals, a CodeIgniter 4 project with conventions for organized file structure, component usage, and modular development.
 
-It is designed to be **easy to start with** and a **reference for adding new features**.
+It is designed to be simple to set up and a foundation for expanding new features as Genopals grows.
 
-- **Purpose**: a clean starting point for CI4 apps.
-- **Audience**: developers who want a predictable structure and quick onboarding.
+**Genopals** is an interactive cozy web app centered around creativity, customization, and community features.
 
+It is designed to be simple to set up and a foundation for expanding new features as Genopals grows.
+
+**Purpose**: a clean starting point for the Genopals web application.
+
+**Audience**: developers contributing to Genopals who want a consistent and scalable project structure.
 ### Key Components
+| Component                 | Purpose                                                                   | Notes                                                                |
+| ------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **User & Auth System**    | Handles account creation, login, and profile data.                        | Uses CI4 sessions and MySQL for user management.                     |
+| **Inventory System**  | Manages collectible items, outfits, and customization data.               | Designed for flexible expansion (future wardrobe / avatar features). |
+| **CRUD Module**           | Example entity (`Posts` or `Tasks`) with create/read/update/delete.       | Demonstrates Controller → Service → Repository pattern.              |
+| **Dashboard / Home View** | Displays the main user area with cards, updates, or current outfits.      | Built with reusable components under `/views/components`.            |
+| **UI Components Library** | Includes reusable cards, buttons, and layout templates for consistent UI. | Located under `/views/components` and `/views/layouts`.              |
 
-These are **sample modules** included (or suggested) for learning how to add features:
-
-| Component              | Purpose                                                             | Notes                                                   |
-| ---------------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
-| **Auth (Sample)**      | Basic login/logout and role check (admin/user).                     | Uses CI4 sessions + MySQL `users` table.                |
-| **CRUD Module**        | Example entity (`Posts` or `Tasks`) with create/read/update/delete. | Demonstrates Controller → Service → Repository pattern. |
-| **Scheduler (Sample)** | Simple to-do list with due dates.                                   | Shows how to extend with new tables and services.       |
 
  <!-- ! Start simple. Use these modules as **learning samples**; extend or replace them based on your project’s needs. -->
 
@@ -86,7 +90,7 @@ These are **sample modules** included (or suggested) for learning how to add fea
 
 #### Framework/Library
 
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+
 ![CodeIgniter](https://img.shields.io/badge/CodeIgniter-EF4223?style=for-the-badge&logo=codeigniter&logoColor=white)
 
 #### Databases
@@ -234,6 +238,7 @@ AD-ProjectName/
 | Pinterest Design Boards | Inspiration for color schemes, typography, and component layouts.     | [https://www.pinterest.com](https://www.pinterest.com)                     |
 | Figma | Inspiration for color schemes, typography, and component layouts.     | [https://www.figma.com](https://www.figma.com/design/udZTjWOdxv4LugdjBaVsZZ/Labubu-Project?node-id=114-34&m=dev&t=MkNDjzX5ud4TUnvb-1)                     |
 |  |
+|File Garden | For image and other types of media hosting | [https://filegarden.com] | (https://filegarden.com/users/66b20f8021a7f6400373cf73/garden/#aM7j9a-Raxbh-Ych)
 | System Documentation    | Internal docs from PHP, MongoDB, and PostgreSQL used in development.  | — (see `/docs` folder in repo)                                             |
 
 <!-- ! Add what tools aided you -->

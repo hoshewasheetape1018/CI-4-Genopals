@@ -22,8 +22,8 @@
 
 
     <section id="section1">
-        <div class="container">
-            <h2>Choose from 3 diffferent species</h2>
+        <div class="container container-animate">
+            <h2>Choose from 3 different species</h2>
 
             <div id="features1">
 
@@ -115,7 +115,7 @@
 
     <section id="section2">
 
-        <div class="container">
+        <div class="container container-animate">
             <h2>Feed, play, and care for your new pet!</h2>
             <img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/feat2.png" alt="section2 feature" height="350">
         </div>
@@ -127,16 +127,16 @@
             <h2 id="title" >Game Features</h2>
             <!-- carousel here or not -->
 
-            <div class="container">
+            <div class="container container-animate">
                 <h2>own up to 3 pets at a time!</h2>
             </div>
-            <div class="container">
+            <div class="container container-animate">
                 <h2>feed, play, and care for your pet and watch them grow!</h2>
             </div>
-            <div class="container">
+            <div class="container container-animate">
                 <h2>buy and sell items for your pet!</h2>
             </div>
-            <div class="container">
+            <div class="container container-animate">
                 <h2>... and more!</h2>
             </div>
 
