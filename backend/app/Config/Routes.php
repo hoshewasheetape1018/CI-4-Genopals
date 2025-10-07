@@ -11,3 +11,4 @@ $routes->get('/signup', 'Registration::index');
 $routes->get('/login', 'Login::index');
 $routes->get('/news', 'Users::news');
 $routes->get('/news/moodboard', 'Users::moodboard');
+$routes->get('/news/roadmap', 'Users::roadmap');
