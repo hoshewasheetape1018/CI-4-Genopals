@@ -629,6 +629,11 @@
 
 
         section#login {
+
+            .container {
+                padding-bottom: 3rem;
+            }
+
             .login-container {
                 display: flex;
                 height: 100%;
@@ -653,12 +658,6 @@
                 justify-content: flex-start;
                 padding-inline: 1.3rem;
 
-                input {
-                    margin-bottom: 1.5rem;
-                    width: 27.5rem;
-                    height: 2.5rem;
-                    font-size: 1.2rem;
-                }
 
                 h2 {
                     text-align: left;
@@ -669,9 +668,9 @@
             .login-img {
                 width: 100%;
                 height: 100%;
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%,
-                        rgba(255, 255, 255, 0.32) 40%,
-                        #ffffff 100%),
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 48%,
+                        rgba(255, 255, 255, 0.32) 60%,
+                        #ffffff 76%),
                     url("https://file.garden/ZrIPgCGn9kADc89z/Genopals/better_hero_bg%20artge2.png");
                 background-size: cover;
                 background-position: center;
@@ -691,7 +690,40 @@
                     align-items: center;
                     margin-bottom: 1.3rem;
                 }
+
+
             }
+
+            form>div:nth-of-type(3) {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+
+        section#signup {
+     
+
+            .container {
+                padding-bottom: 3rem;
+                 h2 {
+                margin-bottom: -0.8rem;
+                 }
+            }
+
+            form > div:nth-of-type(4) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+        }
+
+        input {
+            margin-bottom: 1.5rem;
+            width: 27.5rem;
+            height: 2.5rem;
+            font-size: 1.2rem;
         }
 
         .container {
@@ -850,5 +882,6 @@
 
             }
         }
+    }
     </style>
 </head>

@@ -40,7 +40,6 @@
             </div>
         </div>
     </section>
-    </section>
 
 </body>
 
