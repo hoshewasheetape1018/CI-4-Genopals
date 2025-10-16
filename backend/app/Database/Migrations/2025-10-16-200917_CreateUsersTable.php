@@ -25,10 +25,14 @@ class CreateUsersTable extends Migration
                 'constraint' => 100,
                 'null'       => true,
             ],
-            'level' => [
-                'type'       => 'INT',
-                'constraint' => 11,
-                'default'    => 1,
+            'email' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
+                'null'       => false,
+            ],
+            'password_hash' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
                 'null'       => false,
             ],
             'coins' => [
@@ -37,6 +41,30 @@ class CreateUsersTable extends Migration
                 'default'    => 0,
                 'null'       => false,
             ],
+            'type' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'default'    => 'client',
+                'null'       => false,
+            ],
+            'account_status' => [
+                'type'       => 'TINYINT',
+                'constraint' => 1,
+                'default'    => 1, // 1 = active, 0 = inactive
+                'null'       => false,
+            ],
+            'email_activated' => [
+                'type'       => 'TINYINT',
+                'constraint' => 1,
+                'default'    => 0,
+                'null'       => false,
+            ],
+            'profile_image' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
+                'null'       => true,
+            ],
+            // timestamps and soft delete
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
@@ -50,13 +78,13 @@ class CreateUsersTable extends Migration
                 'null' => true,
             ],
         ]);
+
         $this->forge->addKey('id', true);
-        $this->forge->addUniqueKey('username');
-        $this->forge->createTable('users', true);
+        $this->forge->createTable('users');
     }
 
     public function down()
     {
-        $this->forge->dropTable('users', true);
+        $this->forge->dropTable('users');
     }
 }
