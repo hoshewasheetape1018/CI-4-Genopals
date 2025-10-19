@@ -764,11 +764,6 @@
                 }
             }
 
-            form>div:nth-of-type(4) {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
 
         }
 

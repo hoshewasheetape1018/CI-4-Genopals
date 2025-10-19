@@ -17,12 +17,20 @@
                     <input type="text" name="username" placeholder="Username" required>
                 </div>
                 <div>
+                    <h3> Display Name </h3>
+                    <input type="text" name="display_name" placeholder="Display Name" required>
+                </div>
+                <div>
+                    <h3> Email </h3>
+                    <input type="text" name="email" placeholder="Email" required>
+                </div>
+                <div>
                     <h3> Password </h3>
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
                 <div>
                     <h3> Confirm Password </h3>
-                    <input type="password" name="Confirm password" placeholder="Password" required>
+                    <input type="password" name="Confirm password" placeholder="Confirm Password" required>
                 </div>
                 <div>
                     <?= view('components/buttons/primary', [
