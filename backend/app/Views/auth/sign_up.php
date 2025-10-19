@@ -11,20 +11,38 @@
     <section id="signup">
         <div class="container">
             <h2>Sign Up</h2>
-            <form action="" method="post">
-                <div>
-                    <h3> Username </h3>
-                    <input type="text" name="username" placeholder="Username" required>
+            <form action="/signup" method="post">
+                <?php
+                $errors = session()->getFlashdata('errors') ?? [];
+                $old = session()->getFlashdata('old') ?? [];
+                ?>
+
+              <div>
+                    <h3>Username</h3>
+                    <input type="text" name="username" placeholder="Username" value="<?= esc($old['username'] ?? '') ?>" required>
                 </div>
+
                 <div>
-                    <h3> Password </h3>
+                    <h3>Display Name</h3>
+                    <input type="text" name="display_name" placeholder="Display Name" value="<?= esc($old['display_name'] ?? '') ?>" required>
+                </div>
+
+                <div>
+                    <h3>Email</h3>
+                    <input type="email" name="email" placeholder="Email" value="<?= esc($old['email'] ?? '') ?>" required>
+                </div>
+
+                <div>
+                    <h3>Password</h3>
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
+
                 <div>
-                    <h3> Confirm Password </h3>
-                    <input type="password" name="Confirm password" placeholder="Password" required>
+                    <h3>Confirm Password</h3>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
                 </div>
-                <div>
+
+                <div class="button-group">
                     <?= view('components/buttons/primary', [
                         'btnlink' => '/login',
                         'btntitle' => 'BACK'
@@ -34,17 +52,13 @@
                         'btntitle' => 'SIGN UP',
                         'btntype' => 'submit'
                     ]) ?>
-
                 </div>
             </form>
-
         </div>
     </section>
-    </section>
+
+    <!-- footer -->
+    <?= view('components/footer') ?>
 
 </body>
-
-<!-- footer -->
-<?= view('components/footer') ?>
-
 </html>
