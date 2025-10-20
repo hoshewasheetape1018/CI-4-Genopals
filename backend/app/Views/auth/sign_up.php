@@ -3,11 +3,8 @@
 <?= view('components/head') ?>
 
 <body>
-
-    <!-- header -->
     <?= view('components/header') ?>
 
-    <!-- main content -->
     <section id="signup">
         <div class="container">
             <h2>Sign Up</h2>
@@ -17,29 +14,41 @@
                 $old = session()->getFlashdata('old') ?? [];
                 ?>
 
-              <div>
+                <div>
                     <h3>Username</h3>
                     <input type="text" name="username" placeholder="Username" value="<?= esc($old['username'] ?? '') ?>" required>
+                    <?php if (!empty($errors['username'])): ?>
+                        <p class="error"><?= esc($errors['username']) ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <div>
                     <h3>Display Name</h3>
-                    <input type="text" name="display_name" placeholder="Display Name" value="<?= esc($old['display_name'] ?? '') ?>" required>
+                    <input type="text" name="display_name" placeholder="Display Name" value="<?= esc($old['display_name'] ?? '') ?>">
                 </div>
 
                 <div>
                     <h3>Email</h3>
                     <input type="email" name="email" placeholder="Email" value="<?= esc($old['email'] ?? '') ?>" required>
+                    <?php if (!empty($errors['email'])): ?>
+                        <p class="error"><?= esc($errors['email']) ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <div>
                     <h3>Password</h3>
                     <input type="password" name="password" placeholder="Password" required>
+                    <?php if (!empty($errors['password'])): ?>
+                        <p class="error"><?= esc($errors['password']) ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <div>
                     <h3>Confirm Password</h3>
                     <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <?php if (!empty($errors['confirm_password'])): ?>
+                        <p class="error"><?= esc($errors['confirm_password']) ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <div class="button-group">
@@ -57,8 +66,6 @@
         </div>
     </section>
 
-    <!-- footer -->
     <?= view('components/footer') ?>
-
 </body>
 </html>

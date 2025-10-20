@@ -3,46 +3,53 @@
 <?= view('components/head') ?>
 
 <body>
-
-    <!-- header -->
     <?= view('components/header') ?>
 
-    <!-- main content -->
     <section id="login">
         <div class="container">
-
-
             <div class="login-container">
+                <!-- Signup Prompt -->
                 <div class="login-item">
-
                     <div class="login-img">
-                        <div>
-                            <h2> No account yet? </h2>
-
-                            <?= view('components/buttons/primary', [
-    'btnlink' => '/signup',
-    'btntitle' => 'SIGN UP'
-]) ?>
-                        </div>
+                        <h2>No account yet?</h2>
+                        <?= view('components/buttons/primary', [
+                            'btnlink' => '/signup',
+                            'btntitle' => 'SIGN UP'
+                        ]) ?>
                     </div>
                 </div>
-                <div class="login-item">
-                    <form action="" method="post">
-                        <div>
-                            <h2> Username </h2>
-                            <input type="text" name="username" placeholder="Username" required>
-                        </div>
-                        <div>
-                            <h2> Password </h2>
-                            <input type="password" name="password" placeholder="Password" required>
-                        </div>
-                        <div>
 
+                <!-- Login Form -->
+                <div class="login-item">
+                    <?php
+                    $errors = $errors ?? [];
+                    $old = $old ?? [];
+                    ?>
+                    <form action="/login" method="post" novalidate>
+                        <!-- Username -->
+                        <div>
+                            <h2>Username</h2>
+                            <input type="text" name="username" placeholder="Username" value="<?= esc($old['username'] ?? '') ?>" required>
+                            <?php if (!empty($errors['username'])): ?>
+                                <p class="error"><?= esc($errors['username']) ?></p>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <h2>Password</h2>
+                            <input type="password" name="password" placeholder="Password" required>
+                            <?php if (!empty($errors['password'])): ?>
+                                <p class="error"><?= esc($errors['password']) ?></p>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
                             <?= view('components/buttons/action', [
-    'btnlink' => '#',
-    'btntitle' => 'LOG IN',
-    'btntype' => 'submit'
-]) ?>
+                                'btntitle' => 'LOG IN',
+                                'btntype' => 'submit'
+                            ]) ?>
                         </div>
                     </form>
                 </div>
@@ -50,9 +57,6 @@
         </div>
     </section>
 
+    <?= view('components/footer') ?>
 </body>
-
-<!-- footer -->
-<?= view('components/footer') ?>
-
 </html>
