@@ -14,7 +14,6 @@
             $old    = session()->getFlashdata('signup_old') ?? [];
             $success = session()->getFlashdata('success') ?? null;
 
-
             ?>
 
             <?php if (!empty($success)): ?>
