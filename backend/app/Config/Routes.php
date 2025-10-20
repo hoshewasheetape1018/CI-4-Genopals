@@ -10,8 +10,8 @@ $routes->get('/', 'Users::index');
 // Authentication
 $routes->get('login', 'Authentication::login');
 $routes->post('login', 'Authentication::loginPost');
-$routes->get('signup', 'Authentication::sign_up');
-$routes->post('signup', 'Authentication::signUpPost');
+$routes->get('/signup', 'Authentication::signup');
+$routes->post('/signup', 'Authentication::signupPost');
 $routes->post('logout', 'Authentication::logout');
 
 // Admin
