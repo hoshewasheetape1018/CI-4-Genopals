@@ -17,6 +17,10 @@ $routes->post('logout', 'Authentication::logout');
 // Admin
 $routes->get('admin/dashboard', 'Admin::dashboard');
 
+//Request
+$routes->get('adopt/', 'Adopt::adopt');
+$routes->post('adopt/', 'Adopt::adoptPost');
+
 // News
 $routes->get('news', 'Users::news');
 $routes->get('news/moodboard', 'Users::moodboard');
