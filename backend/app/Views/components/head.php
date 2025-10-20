@@ -166,6 +166,10 @@
             height: 3rem;
             box-shadow: inset 0px 0px 7px 4px rgba(255, 255, 255, 0.79);
             border-radius: 38px;
+            font-family: 'Inter';
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2rem;
 
             a {
                 font-family: 'Inter';
@@ -178,7 +182,17 @@
         button.primary {
             background: linear-gradient(180deg, #FFFFFF 0%, #D0E2EE 82.69%);
             border: 3px solid #007EB0;
+            color: #B2F2FF;
 
+            text-shadow:
+                -2px -2px 0px #005A6C,
+                2px -2px 0px #005A6C,
+                -2px 2px 0px #005A6C,
+                2px 2px 0px #005A6C,
+                0px -2px 0px #005A6C,
+                -2px 0px 0px #005A6C,
+                2px 0px 0px #005A6C,
+                0px 2px 0px #005A6C;
 
             a {
                 color: #B2F2FF;
@@ -199,6 +213,16 @@
         button.action {
             background: linear-gradient(180deg, #FFF8E8 0%, #FFD06A 82.69%);
             border: 3px solid #B97E00;
+            color: #FFC548;
+            text-shadow:
+                -2px -2px 0 #6B4800,
+                2px -2px 0 #6B4800,
+                -2px 2px 0 #6B4800,
+                2px 2px 0 #6B4800,
+                0 -2px 0 #6B4800,
+                -2px 0px 0 #6B4800,
+                2px 0px 0 #6B4800,
+                0 2px 0 #6B4800;
 
 
             a {
@@ -219,7 +243,16 @@
         button.secondary {
             background: linear-gradient(180deg, #B2F2FF 0.48%, #00AFD2 83%);
             border: 3px solid #FFFFFF;
-
+            color: #ffffffff;
+            text-shadow:
+                -2px -2px 0 #005A6C,
+                2px -2px 0 #005A6C,
+                -2px 2px 0 #005A6C,
+                2px 2px 0 #005A6C,
+                0px -2px 0 #005A6C,
+                -2px 0px 0 #005A6C,
+                2px 0px 0 #005A6C,
+                0px 2px 0 #005A6C;
 
             a {
                 color: #ffffffff;
@@ -239,6 +272,16 @@
             background: linear-gradient(180deg, #D9D9D9 0.48%, #696969 83%);
             border: 3px solid #FFFFFF;
             box-shadow: inset 0px 0px 7px rgba(255, 255, 255, 0.79);
+            color: #ffffffff;
+            text-shadow:
+                -2px -2px 0 #363636,
+                2px -2px 0 #363636,
+                -2px 2px 0 #363636,
+                2px 2px 0 #363636,
+                0px -2px 0 #363636,
+                -2px 0px 0 #363636,
+                2px 0px 0 #363636,
+                0px 2px 0 #363636;
 
 
             a {
@@ -260,6 +303,8 @@
             background: transparent;
             border: 3px solid var(--primary);
             box-shadow: none;
+            color: var(--primary);
+            text-shadow: none;
 
             a {
                 color: var(--primary);
@@ -310,6 +355,24 @@
             padding-inline: 3.5rem;
 
         }
+
+        /*ERROR */
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: -0.3rem;
+        }
+
+        .success-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #DFF2BF; /* light green */
+    border: 1px solid #4F8A10; /* dark green */
+    border-radius: 5px;
+    color: #4F8A10;
+    font-weight: bold;
+}
+
 
         /* BODY STYLES */
         body {

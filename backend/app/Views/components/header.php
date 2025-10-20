@@ -22,7 +22,6 @@
             'btnlink' => '/news',
             'btntitle' => 'NEWS'
         ]) ?>
-
         <?php
         $session = session();
         $user = $session->get('user');
@@ -34,23 +33,20 @@
                     'btnlink' => '/account',
                     'btntitle' => 'PROFILE'
                 ]) ?>
-
                 <div class="dropdown-content">
                     <a href="/account/settings">Settings</a>
-                    <a href="#" id="logoutBtn">Log Out</a>
+                    <a href="#" id="logout-link">Log Out</a>
+
+                    <form id="logout-form" action="/logout" method="post" style="display: none;"></form>
+
+                    <script>
+                        document.getElementById('logout-link').addEventListener('click', function(e) {
+                            e.preventDefault(); // prevent default anchor behavior
+                            document.getElementById('logout-form').submit(); // submit the hidden form
+                        });
+                    </script>
+                    </form>
                 </div>
-            </div>
-
-            <script>
-                document.getElementById('logoutBtn').addEventListener('click', function(e) {
-                    e.preventDefault();
-                    fetch('/logout', {
-                            method: 'POST'
-                        })
-                        .then(() => window.location.href = '/');
-                });
-            </script>
-
             </div>
         <?php else: ?>
             <?= view('components/buttons/action', [

@@ -4,10 +4,16 @@
 
 <body>
     <?= view('components/header') ?>
-
+  <?php if (session()->getFlashdata('success')): ?>
+                    <div class="success-message">
+                        <?= esc(session()->getFlashdata('success')) ?>
+                    </div>
+                <?php endif; ?>
     <section id="login">
         <div class="container">
             <div class="login-container">
+              
+
                 <!-- Signup Prompt -->
                 <div class="login-item">
                     <div class="login-img">
@@ -25,7 +31,7 @@
                     $errors = $errors ?? [];
                     $old = $old ?? [];
                     ?>
-                    <form action="/login" method="post" novalidate>
+                    <form action="/login" method="post">
                         <!-- Username -->
                         <div>
                             <h2>Username</h2>
@@ -59,4 +65,5 @@
 
     <?= view('components/footer') ?>
 </body>
+
 </html>
