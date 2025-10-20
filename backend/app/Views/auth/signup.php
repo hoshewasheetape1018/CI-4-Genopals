@@ -8,7 +8,7 @@
     <section id="signup">
         <div class="container">
             <h2>Sign Up</h2>
-            <form action="/signup" method="post">
+            <form action="/signupPost" method="post">
                 <?php
                 $errors = session()->getFlashdata('errors') ?? [];
                 $old = session()->getFlashdata('old') ?? [];

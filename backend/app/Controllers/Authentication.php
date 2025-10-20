@@ -70,27 +70,50 @@ class Authentication extends BaseController
         return redirect()->to('/');
     }
 
-    public function signUp()
-    {
-        $session = session();
-        return view('auth/sign_up', [
-            'errors' => $session->getFlashdata('errors') ?? [],
-            'old' => $session->getFlashdata('old') ?? []
-        ]);
-    }
+  public function signup()
+{
+    $request = service('request');
+    $session = session();
 
-    public function signUpPost()
+    return view('auth/signup', [
+        'errors' => $session->getFlashdata('errors') ?? [],
+        'old' => $session->getFlashdata('old') ?? []
+    ]);
+}
+
+    public function signupPost()
     {
         $session = session();
         $request = service('request');
         $validation = \Config\Services::validation();
 
         $post = $request->getPost();
-        $validation->setRule('username', 'Username', 'required|min_length[3]|max_length[100]|is_unique[users.username]');
-        $validation->setRule('email', 'Email', 'required|valid_email|is_unique[users.email]');
-        $validation->setRule('password', 'Password', 'required|min_length[8]');
-        $validation->setRule('confirm_password', 'Confirm Password', 'required|matches[password]');
 
+        // stricter rules: all required
+        $validation->setRules([
+            'username' => [
+                'label' => 'Username',
+                'rules' => 'required|min_length[3]|max_length[100]|is_unique[users.username]'
+            ],
+            'display_name' => [
+                'label' => 'Display Name',
+                'rules' => 'required|min_length[3]|max_length[100]'
+            ],
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required|valid_email|is_unique[users.email]'
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|min_length[8]'
+            ],
+            'confirm_password' => [
+                'label' => 'Confirm Password',
+                'rules' => 'required|matches[password]'
+            ],
+        ]);
+
+        // if validation fails
         if (!$validation->run($post)) {
             $session->setFlashdata('errors', $validation->getErrors());
             $session->setFlashdata('old', $post);
@@ -98,24 +121,31 @@ class Authentication extends BaseController
         }
 
         $userModel = new UsersModel();
+
         $data = [
-            'username' => $post['username'],
-            'display_name' => $post['display_name'] ?? $post['username'],
-            'email' => $post['email'],
-            'password_hash' => password_hash($post['password'], PASSWORD_DEFAULT),
-            'coins' => 0,
-            'type' => 'client',
-            'account_status' => 1,
+            'username'        => $post['username'],
+            'display_name'    => $post['display_name'],
+            'email'           => $post['email'],
+            'password_hash'   => password_hash($post['password'], PASSWORD_DEFAULT),
+            'coins'           => 0,
+            'type'            => 'client',
+            'account_status'  => 1,
             'email_activated' => 0
         ];
 
-        $insertedId = $userModel->insert($data);
-        if ($insertedId) {
-            $session->setFlashdata('success', 'Account created successfully! You can now log in.');
-            return redirect()->to('/login');
+        if (!$userModel->insert($data)) {
+            if (ENVIRONMENT === 'development') {
+                log_message('error', 'Signup failed: ' . json_encode($userModel->errors()));
+            }
+
+            $session->setFlashdata('errors', [
+                'general' => 'Failed to create account. Please try again later.'
+            ]);
+            $session->setFlashdata('old', $post);
+            return redirect()->back()->withInput();
         }
 
-        $session->setFlashdata('errors', ['general' => 'Failed to create account. Please try again.']);
-        return redirect()->back()->withInput();
+        $session->setFlashdata('success', 'Account created successfully! You can now log in.');
+        return redirect()->to('/login');
     }
 }
