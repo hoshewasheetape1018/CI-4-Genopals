@@ -17,6 +17,13 @@ $routes->post('logout', 'Authentication::logout');
 // Admin
 $routes->get('admin/dashboard', 'Admin::dashboard');
 
+//Profile
+$routes->get('profile', 'Profile::index');
+$routes->post('profile/update', 'Profile::updateProfile');
+$routes->get('profile/settings', 'Profile::settings');
+$routes->post('profile/settings/update', 'Profile::updateSettings');
+
+
 //Request
 $routes->get('adopt/', 'Adopt::adopt');
 $routes->post('adopt/', 'Adopt::adoptPost');
