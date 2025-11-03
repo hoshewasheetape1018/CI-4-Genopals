@@ -14,10 +14,13 @@
             Create and take care of your own virtual angel pet!
         </h1>
 
-<?= view('components/buttons/secondary', [
-    'btnlink' => '/signup',
-    'btntitle' => 'SIGN UP'
-]) ?>
+<?php if (!session('isLoggedIn')): ?>
+    <?= view('components/buttons/secondary', [
+        'btnlink' => '/signup',
+        'btntitle' => 'SIGN UP'
+    ]) ?>
+<?php endif; ?>
+
     </section>
 
 

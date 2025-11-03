@@ -24,32 +24,33 @@
         ]) ?>
         <?php
         $session = session();
-        $user = $session->get('user');
+        $isLoggedIn = $session->get('isLoggedIn');
         ?>
 
-        <?php if ($user): ?>
-            <div class="profile-dropdown">
-                <?= view('components/buttons/action', [
-                    'btnlink' => '/account',
+        <?php if ($isLoggedIn): ?>
+
+        <div class="profile-dropdown">
+            <?= view('components/buttons/action', [
+                    'btnlink' => '/profile',
                     'btntitle' => 'PROFILE'
                 ]) ?>
-                <div class="dropdown-content">
-                    <a href="/account/settings">Settings</a>
-                    <a href="#" id="logout-link">Log Out</a>
+            <div class="dropdown-content">
+                <a href="/profile/settings">Settings</a>
+                <a href="#" id="logout-link">Log Out</a>
 
-                    <form id="logout-form" action="/logout" method="post" style="display: none;"></form>
+                <form id="logout-form" action="/logout" method="post" style="display: none;"></form>
 
-                    <script>
-                        document.getElementById('logout-link').addEventListener('click', function(e) {
-                            e.preventDefault(); // prevent default anchor behavior
-                            document.getElementById('logout-form').submit(); // submit the hidden form
-                        });
-                    </script>
-                    </form>
-                </div>
+                <script>
+                document.getElementById('logout-link').addEventListener('click', function(e) {
+                    e.preventDefault(); // prevent default anchor behavior
+                    document.getElementById('logout-form').submit(); // submit the hidden form
+                });
+                </script>
+                </form>
             </div>
+        </div>
         <?php else: ?>
-            <?= view('components/buttons/action', [
+        <?= view('components/buttons/action', [
                 'btnlink' => '/login',
                 'btntitle' => 'LOG IN'
             ]) ?>
