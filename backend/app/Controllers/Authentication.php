@@ -57,7 +57,7 @@ class Authentication extends BaseController
             return redirect()->back()->withInput();
         }
 
-        // ✅ SUCCESSFUL LOGIN
+        // LOGIN
         $session->set([
             'user_id'      => $userArr['id'],
             'username'     => $userArr['username'],

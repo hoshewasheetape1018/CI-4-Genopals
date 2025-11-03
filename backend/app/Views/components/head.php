@@ -935,11 +935,10 @@
         }
 
         div.stat-container {
-            width: 70%;
-            padding-inline: 1.5rem;
+            width: 90%;
             margin-bottom: -0.7rem;
             display: flex;
-            gap: 1.4rem;
+            gap: 4rem;
             align-items: center;
 
             h4 {

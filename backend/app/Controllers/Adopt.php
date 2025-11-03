@@ -4,12 +4,20 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\PetModel;
-use CodeIgniter\HTTP\ResponseInterface;
 
 class Adopt extends BaseController
 {
     public function index()
     {
+        $session = session();
+        $userId = $session->get('user_id'); // already set at login
+
+        if (!$userId) {
+            // redirect to login if not logged in
+            $session->setFlashdata('error', 'You must be logged in to adopt a pet.');
+            return redirect()->to('/login');
+        }
+
         return view('user/adopt_form');
     }
 
@@ -22,26 +30,21 @@ class Adopt extends BaseController
         $request = service('request');
         $petModel = new PetModel();
 
-        // get current user
-        $user = $session->get('user');
-        if (!$user) {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'You must be logged in to adopt a pet.',
-            ]);
+        // get current user id directly from session
+        $userId = $session->get('user_id');
+        if (!$userId) {
+            $session->setFlashdata('error', 'You must be logged in to adopt a pet.');
+            return redirect()->to('/login');
         }
 
-        $userId = $user['id'];
         $species = $request->getPost('species');
         $name = $request->getPost('name');
 
         // check current pets
         $petCount = $petModel->where('user_id', $userId)->countAllResults();
         if ($petCount >= 3) {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'You already have 3 pets!',
-            ]);
+            $session->setFlashdata('error', 'You already have 3 pets!');
+            return redirect()->to('/adopt');
         }
 
         // species-based defaults
@@ -67,12 +70,11 @@ class Adopt extends BaseController
         ];
 
         if (!array_key_exists($species, $speciesStats)) {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Invalid species type.',
-            ]);
+            $session->setFlashdata('error', 'Invalid species type.');
+            return redirect()->to('/adopt');
         }
 
+        // insert new pet
         $data = array_merge(
             ['user_id' => $userId, 'name' => $name, 'species' => $species],
             $speciesStats[$species]
@@ -80,9 +82,7 @@ class Adopt extends BaseController
 
         $petModel->insert($data);
 
-        return $this->response->setJSON([
-            'status' => 'success',
-            'message' => 'Pet adopted successfully!',
-        ]);
+        $session->setFlashdata('success', 'Pet adopted successfully!');
+        return redirect()->to('/profile'); // redirect to profile to see new pet
     }
 }

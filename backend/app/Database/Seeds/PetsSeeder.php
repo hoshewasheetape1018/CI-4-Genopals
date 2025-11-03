@@ -19,9 +19,9 @@ class PetsSeeder extends Seeder
 
         // Define pets using the species reference above
         $pets = [
-            ['user_id' => 1, 'name' => 'Hikari', 'species' => 'bunny', 'image' => 'https://file.garden/.../ab1.png'],
-            ['user_id' => 1, 'name' => 'Luna',  'species' => 'goat',  'image' => 'https://file.garden/.../ab2.png'],
-            ['user_id' => 1, 'name' => 'Aqua',  'species' => 'fish',  'image' => 'https://file.garden/.../ab3.png'],
+            ['user_id' => 1, 'name' => 'Hikari', 'species' => 'bunny', 'image' => 'https://file.garden/ZrIPgCGn9kADc89z/Genopals/ab1.png'],
+            ['user_id' => 1, 'name' => 'Luna',  'species' => 'goat',  'image' => 'https://file.garden/ZrIPgCGn9kADc89z/Genopals/ab2.png'],
+            ['user_id' => 1, 'name' => 'Aqua',  'species' => 'fish',  'image' => 'https://file.garden/ZrIPgCGn9kADc89z/Genopals/ab3.png'],
         ];
 
         // Merge stats automatically per species
