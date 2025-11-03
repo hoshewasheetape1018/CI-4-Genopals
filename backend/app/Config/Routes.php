@@ -25,8 +25,8 @@ $routes->post('profile/settings/update', 'Profile::updateSettings');
 
 
 //Request
-$routes->get('adopt/', 'Adopt::adopt');
-$routes->post('adopt/', 'Adopt::adoptPost');
+$routes->get('adopt', 'Adopt::index');
+$routes->post('adopt/request', 'Adopt::adoptRequest');
 
 // News
 $routes->get('news', 'Users::news');
