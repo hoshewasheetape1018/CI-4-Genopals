@@ -15,18 +15,27 @@ $routes->post('/signup', 'Authentication::signupPost');
 $routes->post('logout', 'Authentication::logout');
 
 // Admin
-$routes->get('admin/dashboard', 'Admin::dashboard');
+$routes->get('/admin/dashboard', 'AdminDashboard::index');
+$routes->get('admin/users', 'AdminUsers::index');
+$routes->get('admin/pets', 'AdminPets::index');
+$routes->get('admin/users/edit/(:num)', 'AdminUsers::edit/$1');
+$routes->post('admin/users/update/(:num)', 'AdminUsers::update/$1');
+$routes->post('admin/users/delete/(:num)', 'AdminUsers::delete/$1');
 
 //Profile
 $routes->get('profile', 'Profile::index');
-$routes->post('profile/update', 'Profile::updateProfile');
-$routes->get('profile/settings', 'Profile::settings');
-$routes->post('profile/settings/update', 'Profile::updateSettings');
+$routes->get('/profile/settings', 'Profile::settings');
+$routes->post('/profile/settings', 'Profile::updateSettings');
+
+// User Pet Management
+$routes->get('/pet/edit/(:num)', 'UserPetController::edit/$1');
+$routes->post('profile/pet/update/(:num)', 'UserPetController::update/$1');
+$routes->post('profile/pet/delete/(:num)', 'UserPetController::delete/$1');
 
 
 //Request
-$routes->get('adopt/', 'Adopt::adopt');
-$routes->post('adopt/', 'Adopt::adoptPost');
+$routes->get('adopt', 'Adopt::index');
+$routes->post('adopt/request', 'Adopt::adoptRequest');
 
 // News
 $routes->get('news', 'Users::news');
