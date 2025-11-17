@@ -4,11 +4,11 @@
 <br/>
 
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
+  <a href="https://github.com/hosheewashitape1018/">
     <img src="https://file.garden/ZrIPgCGn9kADc89z/Genopals/genopals-logo.png" alt="Genopals" height="100">
   </a>
 <!-- * Title Section -->
-  <h3 align="center">AD - CI4 Template</h3>
+  <h3 align="center">AD - Genopals Project</h3>
 </div>
 
 <!-- * Description Section -->
@@ -56,7 +56,7 @@ It helps teams quickly bootstrap backend + frontend projects, with simple sample
 
 ## Overview
 
-This template provides the base layout for Genopals, a CodeIgniter 4 project with conventions for organized file structure, component usage, and modular development.
+This project provides the base layout for Genopals, a CodeIgniter 4 project with conventions for organized file structure, component usage, and modular development.
 
 It is designed to be simple to set up and a foundation for expanding new features as Genopals grows.
 
@@ -237,8 +237,7 @@ AD-ProjectName/
 | YouTube “UI/UX Design”  | Video tutorials on modern web interface layouts and patterns.         | [https://www.youtube.com](https://www.youtube.com)                         |
 | Pinterest Design Boards | Inspiration for color schemes, typography, and component layouts.     | [https://www.pinterest.com](https://www.pinterest.com)                     |
 | Figma | Inspiration for color schemes, typography, and component layouts.     | [https://www.figma.com](https://www.figma.com/design/udZTjWOdxv4LugdjBaVsZZ/Labubu-Project?node-id=114-34&m=dev&t=MkNDjzX5ud4TUnvb-1)                     |
-|  |
-|File Garden | For image and other types of media hosting | [https://filegarden.com](https://filegarden.com/users/66b20f8021a7f6400373cf73/garden/#aM7j9a-Raxbh-Ych) 
+| File Garden | For image and other types of media hosting | [https://filegarden.com](https://filegarden.com/users/66b20f8021a7f6400373cf73/garden/#aM7j9a-Raxbh-Ych) 
 | System Documentation    | Internal docs from PHP, MongoDB, and PostgreSQL used in development.  | — (see `/docs` folder in repo)                                             |
 
 <!-- ! Add what tools aided you -->
