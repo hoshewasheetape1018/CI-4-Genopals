@@ -4,22 +4,26 @@
 
 <body>
     <?php
-$session = session();
+    $session = session();
 
-// Redirect if not logged in
-if (!$session->has('user_id')) {
-    return redirect()->to('/login');
-}
+    // Redirect if not logged in
+    if (!$session->has('user_id')) {
+        return redirect()->to('/login');
+    }
 
-$db = \Config\Database::connect();
-$userId = $session->get('user_id');
+    $userId = $session->get('user_id');
 
-// Get user info
-$user = $db->table('users')->where('id', $userId)->get()->getRow();
+    // Load models
+    $UsersModel = new \App\Models\UsersModel();
+    $PetModel   = new \App\Models\PetModel();
 
-// Get pets owned by this user
-$pets = $db->table('pets')->where('user_id', $userId)->get()->getResultArray();
-?>
+    // Get user info
+    $user = $UsersModel->find($userId);
+
+    // Get pets owned by this user (soft-deleted pets automatically ignored)
+    $pets = $PetModel->where('user_id', $userId)->findAll();
+    ?>
+
 
     <!-- header -->
     <?= view('components/header') ?>
@@ -56,49 +60,53 @@ $pets = $db->table('pets')->where('user_id', $userId)->get()->getResultArray();
             <div class="pet-container">
                 <div class="pets-container">
                     <?php
-                $totalSlots = 3; // max visible slots
-                $ownedPets = $pets ?? [];
-                ?>
+                    $totalSlots = 3; // max visible slots
+                    $ownedPets = $pets ?? [];
+                    ?>
+<?php for ($i = 0; $i < $totalSlots; $i++): ?>
+    <?php if (isset($ownedPets[$i])): ?>
+        <?php $pet = $ownedPets[$i]; ?>
+        <div class="feat-item">
 
-                    <?php for ($i = 0; $i < $totalSlots; $i++): ?>
-                    <?php if (isset($ownedPets[$i])): ?>
-                    <?php $pet = $ownedPets[$i]; ?>
-                    <div class="feat-item">
-                        <div style="display: flex; justify-content: center;">
-                            <img src="<?= esc($pet['image']) ?>" alt="<?= esc($pet['name']) ?>" height="250">
-                        </div>
+            <a href="/pet/edit/<?= $pet->id ?>" style="color: inherit; text-decoration: none; transition: 0.2s;">
+                <i class="fa-solid fa-pen-to-square fa-xl"></i>
+            </a>
+            <div style="display: flex; justify-content: center;">
+                <img src="<?= esc($pet->image) ?>" alt="<?= esc($pet->name) ?>" height="250">
+            </div>
 
-                        <div class="stat-container">
-                            <h4>Affection:</h4>
-                            <div class="stat-box">
-                                <div class="stat-bar" id="health" style="width:<?= min(100, $pet['base_affection']) ?>%;"></div>
-                            </div>
-                        </div>
+            <div class="stat-container">
+                <h4>Affection:</h4>
+                <div class="stat-box">
+                    <div class="stat-bar" id="health" style="width:<?= min(100, $pet->base_affection) ?>%;"></div>
+                </div>
+            </div>
 
-                        <div class="stat-container">
-                            <h4>Energy:</h4>
-                            <div class="stat-box">
-                                <div class="stat-bar" id="energy" style="width:<?= min(100, $pet['base_energy']) ?>%;"></div>
-                            </div>
-                        </div>
+            <div class="stat-container">
+                <h4>Energy:</h4>
+                <div class="stat-box">
+                    <div class="stat-bar" id="energy" style="width:<?= min(100, $pet->base_energy) ?>%;"></div>
+                </div>
+            </div>
 
-                        <div class="stat-container">
-                            <h4>Maintenance:</h4>
-                            <div class="stat-box">
-                                <div class="stat-bar" id="hunger" style="width:<?= min(100, $pet['base_maintenance']) ?>%;"></div>
-                            </div>
-                        </div>
+            <div class="stat-container">
+                <h4>Maintenance:</h4>
+                <div class="stat-box">
+                    <div class="stat-bar" id="hunger" style="width:<?= min(100, $pet->base_maintenance) ?>%;"></div>
+                </div>
+            </div>
 
-                    </div>
-                    <?php else: ?>
-                    <div class="feat-item empty-slot">
-                        <a href="/adopt" class="add-pet">
-                            <i class="fa-solid fa-plus fa-4x"></i>
-                            <p>Adopt a new Genopal</p>
-                        </a>
-                    </div>
-                    <?php endif; ?>
-                    <?php endfor; ?>
+        </div>
+    <?php else: ?>
+        <div class="feat-item empty-slot">
+            <a href="/adopt" class="add-pet">
+                <i class="fa-solid fa-plus fa-4x"></i>
+                <p>Adopt a new Genopal</p>
+            </a>
+        </div>
+    <?php endif; ?>
+<?php endfor; ?>
+
                 </div>
             </div>
         </div>

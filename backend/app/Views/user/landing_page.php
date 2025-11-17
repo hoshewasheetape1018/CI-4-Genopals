@@ -7,6 +7,13 @@
     <!-- header -->
     <?= view('components/header') ?>
 
+    <!-- error if from admin -->
+<?php if (session()->getFlashdata('error')): ?>
+    <div class="error-message">
+        <?= esc(session()->getFlashdata('error')) ?>
+    </div>
+<?php endif; ?>
+
     <!-- start of landing page -->
 
     <section id="hero">

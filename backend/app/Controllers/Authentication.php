@@ -68,7 +68,7 @@ class Authentication extends BaseController
         ]);
 
         // Redirect based on role
-        return strtolower($userArr['type'] ?? 'client') === 'manager'
+        return strtolower($userArr['type'] ?? 'client') === 'admin'
             ? redirect()->to('/admin/dashboard')
             : redirect()->to('/');
     }
