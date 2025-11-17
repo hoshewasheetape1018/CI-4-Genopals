@@ -9,8 +9,8 @@
         ]) ?>
 
         <?= view('components/buttons/primary', [
-            'btnlink' => '/',
-            'btntitle' => 'INVENTORY'
+            'btnlink' => '/adopt',
+            'btntitle' => 'ADOPT'
         ]) ?>
 
         <?= view('components/buttons/primary', [

@@ -72,4 +72,25 @@ class AdminUsers extends BaseController
 
         return redirect()->to('/admin/users')->with('success', 'User updated successfully.');
     }
+
+    // Delete user
+public function delete($id)
+{
+    $usersModel = new UsersModel();
+    $userEntity = $usersModel->find($id);
+
+    if (!$userEntity) {
+        return redirect()->to('/admin/users')->with('error', 'User not found.');
+    }
+
+    // Prevent deleting self
+    if ($id == $this->session->get('user_id')) {
+        return redirect()->to('/admin/users')->with('error', 'You cannot delete your own account.');
+    }
+
+    $usersModel->delete($id);
+
+    return redirect()->to('/admin/users')->with('success', 'User deleted successfully.');
+}
+
 }

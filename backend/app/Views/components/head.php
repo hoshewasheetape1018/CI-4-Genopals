@@ -1078,7 +1078,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: auto;
+                min-height: 370px;
                 width: 25%;
                 border: 2px dashed #9cbfd6;
                 cursor: pointer;
@@ -1256,7 +1256,9 @@
                     }
                 }
             }
-
+            .pet-container {
+                width:90%;
+            }
 
             .adopt-container {
                 display: flex;
@@ -1335,18 +1337,6 @@
                 transition: width 420ms cubic-bezier(.2, .8, .2, 1);
             }
 
-            .feat-item.empty-slot {
-                background-color: #EBF4F5;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: auto;
-                width: 25%;
-                border: 2px dashed #9cbfd6;
-                cursor: pointer;
-                transition: all 0.2s ease-in-out;
-                flex-wrap: wrap;
-            }
 
             .add-pet {
                 text-align: center;

@@ -67,10 +67,13 @@
     <?php if (isset($ownedPets[$i])): ?>
         <?php $pet = $ownedPets[$i]; ?>
         <div class="feat-item">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <span><?= esc($pet->name) ?></span>
 
             <a href="/pet/edit/<?= $pet->id ?>" style="color: inherit; text-decoration: none; transition: 0.2s;">
                 <i class="fa-solid fa-pen-to-square fa-xl"></i>
             </a>
+    </div>
             <div style="display: flex; justify-content: center;">
                 <img src="<?= esc($pet->image) ?>" alt="<?= esc($pet->name) ?>" height="250">
             </div>

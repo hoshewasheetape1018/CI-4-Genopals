@@ -20,6 +20,7 @@ $routes->get('admin/users', 'AdminUsers::index');
 $routes->get('admin/pets', 'AdminPets::index');
 $routes->get('admin/users/edit/(:num)', 'AdminUsers::edit/$1');
 $routes->post('admin/users/update/(:num)', 'AdminUsers::update/$1');
+$routes->post('admin/users/delete/(:num)', 'AdminUsers::delete/$1');
 
 //Profile
 $routes->get('profile', 'Profile::index');
