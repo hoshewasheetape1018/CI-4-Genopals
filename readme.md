@@ -9,6 +9,8 @@
   </a>
 <!-- * Title Section -->
   <h3 align="center">AD - Genopals Project</h3>
+  <br>
+  <a href="https://genopals.infinityfree.me/?i=1"> https://genopals.infinityfree.me/?i=1 </a>
 </div>
 
 <!-- * Description Section -->
